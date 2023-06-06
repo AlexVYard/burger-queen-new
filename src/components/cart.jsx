@@ -1,4 +1,4 @@
-import React, { useState/* , useEffect */ } from 'react'
+import /* React,  */{ useState/* , useEffect */ } from 'react'
 // import { /* Navigate,  */useNavigate } from "react-router-dom"
 import './styles.css';
 // import { signIn } from '../scripts/signIn';
@@ -92,7 +92,7 @@ function Cart({ cart, addToCart, results, setResults }/* { menuToProducts } */) 
           {cart.map((item, index) => {
             //console.log(item)
             return (
-              <div className="cart">
+              <div key={`cartItemsDiv${item['id']}`}className="cart">
                 <h3>{item.product.name}</h3>
                 <section className="quantitybuttons">
 

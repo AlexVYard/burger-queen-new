@@ -7,7 +7,7 @@ import Cart from './cart';
 
 function Menu() {
 
-  const [results, setResults] = useState()
+  const [products, setProducts] = useState()
   const [cart, addToCart] = useState([])
   let [filter, setFilter] = useState('')
 
@@ -27,8 +27,8 @@ function Menu() {
 
       <main className="PantallaInicio">
 
-        <Products filter={filter} results={results} setResults={setResults} cart={cart} addToCart={addToCart}/* menuToProducts={results}  */ />
-        <Cart results={results} setResults={setResults} cart={cart} addToCart={addToCart} />
+        <Products filter={filter} products={products} setProducts={setProducts} cart={cart} addToCart={addToCart}/* menuToProducts={results}  */ />
+        <Cart products={products} setProducts={setProducts} cart={cart} addToCart={addToCart} />
 
       </main>
     </>

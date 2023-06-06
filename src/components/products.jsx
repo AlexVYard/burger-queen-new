@@ -1,37 +1,33 @@
-import /* React,  */{ /* useState,  */useEffect } from 'react'
-import { /* Navigate,  */useNavigate } from "react-router-dom"
+// import /* React,  */ { /* useState,  */useEffect } from 'react'
+// import { /* Navigate,  */useNavigate } from "react-router-dom"
 import './styles.css';
 // import { signIn } from '../scripts/signIn';
 import { database } from '../scripts/database';
+import { useCheckAuth } from '../scripts/checkAuth';
 // import { getElementError } from '@testing-library/react'
 // import ReactDOM from "react-dom"
 
-function Products({ filter, cart, addToCart, results, setResults }) {
+function Products({ filter, cart, addToCart, products, setProducts }) {
 
   // const [results, setResults] = useState()
   // const [cart, addToCart] = useState([]);
 
-  const navigate = useNavigate();
+  /* const navigate = useNavigate(); */
 
-  useEffect(() => {  // getting info from database
-    // fetch data
-    const resultsFetch = async () => {
-      let results = await database('products', 'GET', localStorage.getItem("accessToken"))
-      if (results === 'jwt expired') {
-        localStorage.setItem("accessToken", results['accessToken'])
-        localStorage.setItem("user-info", JSON.stringify(results))
-        navigate('/login')
-        return
-      }
-      results = results.filter(value => value.type.includes(filter))
-      setResults(results);
-    }
-    resultsFetch()
-    // console.log("results", results)
-  }, [navigate, filter, setResults]);
+  /* useEffect(() => {  // getting info from database */
+  // fetch data
+  const useResultsFetch = async () => {
+    let products = await database('products', 'GET', localStorage.getItem("accessToken"))
+    await useCheckAuth(products)
+    products = products.filter(value => value.type.includes(filter))
+    setProducts(products);
+  }
+  useResultsFetch()
+  // console.log("results", results)
+  /* }, [navigate, filter, setResults]); */
   // console.log("results", results)
 
-  function addToCartButton(e, index) {
+  function addToCartButton(e/* , index */) {
     // console.log("cart", cart)
     // console.log("e", e)
     const cartBody = {
@@ -72,10 +68,10 @@ function Products({ filter, cart, addToCart, results, setResults }) {
 
   return (
     <>
-      {results && results.map((e, index) => { // renders products   
+      {products && products.map((e, index) => { // renders products   
         return (
           // results && results.map((e, index) => (
-          <section className="cajaInicio">
+          <section key={`productsComponent${e['id']}`} className="cajaInicio">
             <img src={e['image']} alt={e['name']}></img><br></br>
             <p id="textoCorreoInvalido" className="textoCorreoInvalido">{e['name']}</p><br></br>
             <p id="textoCorreoInvalido" className="textoCorreoInvalido">Precio: {e['price']}</p><br></br>
