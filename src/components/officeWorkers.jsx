@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import /* React,  */{ useState, useEffect } from 'react'
 import { /* Navigate,  */useNavigate } from "react-router-dom"
 import './styles.css';
 // import { signIn } from '../scripts/signIn';
@@ -96,7 +96,7 @@ function Workers() {
 
   return (
     <>
-      {results && results.map((e, index) => { // renders products
+      {results && results.map((e/* , index */) => { // renders products
         const roleValue = () => {
           if (e['role'] === 'waiter') return 'Mesero'
           if (e['role'] === 'chef') return 'Cocinero'

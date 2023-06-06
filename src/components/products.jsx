@@ -1,4 +1,4 @@
-// import /* React,  */ { /* useState,  */useEffect } from 'react'
+import /* React,  */ { /* useState,  */useEffect } from 'react'
 // import { /* Navigate,  */useNavigate } from "react-router-dom"
 import './styles.css';
 // import { signIn } from '../scripts/signIn';
@@ -9,22 +9,24 @@ import { useCheckAuth } from '../scripts/checkAuth';
 
 function Products({ filter, cart, addToCart, products, setProducts }) {
 
+  useCheckAuth()
+
   // const [results, setResults] = useState()
   // const [cart, addToCart] = useState([]);
 
   /* const navigate = useNavigate(); */
 
-  /* useEffect(() => {  // getting info from database */
-  // fetch data
-  const useResultsFetch = async () => {
-    let products = await database('products', 'GET', localStorage.getItem("accessToken"))
-    await useCheckAuth(products)
-    products = products.filter(value => value.type.includes(filter))
-    setProducts(products);
-  }
-  useResultsFetch()
+  useEffect(() => {
+    const productsFetch = async () => {
+      let products = await database('products', 'GET', localStorage.getItem("accessToken"))
+      // useCheckAuth(products)
+      products = products.filter(value => value.type.includes(filter))
+      setProducts(products);
+    }
+    productsFetch()
+  }, [filter, setProducts])
   // console.log("results", results)
-  /* }, [navigate, filter, setResults]); */
+  // }, [filter, setProducts]);
   // console.log("results", results)
 
   function addToCartButton(e/* , index */) {
