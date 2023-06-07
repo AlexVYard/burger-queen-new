@@ -11,7 +11,6 @@ export async function useCheckAuth() {
     localStorage.setItem("accessToken", users['accessToken'])
     localStorage.setItem("user-info", JSON.stringify(users))
     navigate('/login')
-    return
   }
-  
+
 }

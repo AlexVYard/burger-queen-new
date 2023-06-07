@@ -5,6 +5,7 @@ import { useCheckAuth } from '../scripts/checkAuth'; */
 // import MenuHeader from './menuHeader';
 import Products from './products';
 import Cart from './cart';
+// import { useCheckAuth } from '../scripts/checkAuth';
 
 function Menu() {
 

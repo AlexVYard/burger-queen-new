@@ -1,4 +1,4 @@
-import /* React,  */{ useState, useEffect } from 'react'
+import /* React,  */ { useState, useEffect } from 'react'
 import { /* Navigate,  */useNavigate } from "react-router-dom"
 import './styles.css';
 // import { signIn } from '../scripts/signIn';
@@ -6,7 +6,7 @@ import { database } from '../scripts/database';
 
 function Workers() {
 
-  let [results, setResults] = useState()
+  let [users, setUsers] = useState()
   // const [cart, addToCart] = useState([]);
   // const [userData, setUserData] = useState({})
   const [editUser, setEditUser] = useState({})
@@ -23,22 +23,17 @@ function Workers() {
   const navigate = useNavigate();
 
   async function reloadDatabase() {
-    results = await database('users', 'GET', localStorage.getItem("accessToken"))
-    setResults(results)
+    users = await database('users', 'GET', localStorage.getItem("accessToken"))
+    setUsers(users)
   }
 
   useEffect(() => {  // getting info from database
     // fetch data
-    const resultsFetch = async () => {
-      const results = await database('users', 'GET', localStorage.getItem("accessToken"))
-      setResults(results);
-      if (results === 'jwt expired') {
-        localStorage.setItem("accessToken", results['accessToken'])
-        localStorage.setItem("user-info", JSON.stringify(results))
-        navigate('/login')
-      }
+    const usersFetch = async () => {
+      const users = await database('users', 'GET', localStorage.getItem("accessToken"))
+      setUsers(users);
     }
-    resultsFetch()
+    usersFetch()
     // console.log("results", results)
   }, [navigate]);
   // console.log("results", results)
@@ -57,14 +52,14 @@ function Workers() {
     } else {
       setErrorPosition(false)
     }
-    const result = await database('users', 'POST', localStorage.getItem("accessToken"), body)
-    if (typeof result === 'object') {
+    const user = await database('users', 'POST', localStorage.getItem("accessToken"), body)
+    if (typeof user === 'object') {
       // navigate('/menu')
       setAddUserForm(false)
       setAddUserBox(true)
     } else {
       setError(true)
-      setErrorText(result)
+      setErrorText(user)
       // this.setState({ text: 'result' });
     }
     // console.log(result)    
@@ -82,9 +77,18 @@ function Workers() {
     }))
   }
 
-  async function acceptEditUser(id) {
-    await database(`users/${id}`, 'PATCH', localStorage.getItem("accessToken"), body)
-    showEditUserForm(id)
+  async function acceptEditUser(e) {
+    if (email === "") {
+      setEmail(e.email)
+    }
+    if (password === "") {
+      setPassword(e.password)
+    }
+    if (role === "") {
+      setRole(e.role)
+    }
+    await database(`users/${e.id}`, 'PATCH', localStorage.getItem("accessToken"), body)
+    showEditUserForm(e.id)
     reloadDatabase()
   }
 
@@ -96,7 +100,7 @@ function Workers() {
 
   return (
     <>
-      {results && results.map((e/* , index */) => { // renders products
+      {users && users.map((e/* , index */) => { // renders products
         const roleValue = () => {
           if (e['role'] === 'waiter') return 'Mesero'
           if (e['role'] === 'chef') return 'Cocinero'
@@ -111,12 +115,13 @@ function Workers() {
           // results && results.map((e, index) => (
           <section className="officeBox" key={e.id}>
 
-            {editUser[e.id] ? null : <><p
-              id="textoCorreoInvalido"
-              className="textoCorreoInvalido">
-              Email: {e['email']}<br></br>
-              Role: {roleValue()}
-            </p><br></br>
+            {editUser[e.id] ? null : <>
+              <p
+                id="textoCorreoInvalido"
+                className="textoCorreoInvalido">
+                Email: {e['email']}<br></br>
+                Role: {roleValue()}
+              </p><br></br>
 
               <button
                 onClick={() => { showEditUserForm(e.id)/* setEditUser(e.id); setUserData(e.id)  */ }}
@@ -170,7 +175,7 @@ function Workers() {
               </select ><br></br>
 
               <button
-                onClick={() => { acceptEditUser(e.id); setEmail(e['email'])/* database(`users/${e.id}`, 'PATCH', localStorage.getItem("accessToken"), body) *//* ; setError(true) */ }}
+                onClick={() => { acceptEditUser(e)/* ; setEmail(e['email']) *//* database(`users/${e.id}`, 'PATCH', localStorage.getItem("accessToken"), body) *//* ; setError(true) */ }}
                 className="checkoutBoxButtons"
               >Aceptar</button><br></br>
 

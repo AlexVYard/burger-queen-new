@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { /* Navigate,  */useNavigate } from "react-router-dom"
+import /* React,  */ { useState, useEffect } from 'react'
+// import { /* Navigate,  */useNavigate } from "react-router-dom"
 // import { postOrder } from '../scripts/postOrder';
 import { database } from '../scripts/database';
 import Header from './officeHeader';
@@ -17,29 +17,22 @@ function OfficeProducts() {
   const [error, setError] = useState(false)
   const [errorText, setErrorText] = useState('Error')
 
-  let [results, setResults] = useState()
-
-  const navigate = useNavigate();
+  let [products, setProducts] = useState()
 
   async function reloadDatabase() {
-    results = await database('products', 'GET', localStorage.getItem("accessToken"))
-    setResults(results)
+    products = await database('products', 'GET', localStorage.getItem("accessToken"))
+    setProducts(products)
   }
 
   useEffect(() => {  // getting info from database
     // fetch data
-    const resultsFetch = async () => {
-      const results = await database('products', 'GET', localStorage.getItem("accessToken"))
-      setResults(results);
-      if (results === 'jwt expired') {
-        localStorage.setItem("accessToken", results['accessToken'])
-        localStorage.setItem("user-info", JSON.stringify(results))
-        navigate('/login')
-      }
+    const productsFetch = async () => {
+      const produtcs = await database('products', 'GET', localStorage.getItem("accessToken"))
+      setProducts(produtcs);
     }
-    resultsFetch()
+    productsFetch()
     // console.log("results", results)
-  }, [navigate, setResults]);
+  }, [setProducts]);
   // console.log("results", results)
 
   const showEditProductForm = id => {
@@ -117,22 +110,22 @@ function OfficeProducts() {
     <>
       <Header />
       <main className="officeScreen">
-        {results && results.map((e, index) => { // renders products
+        {products && products.map((e) => { // renders products
           /* const typeValue = () => {
             if (e['type'] === 'Desayuno') return 'Mesero'
             if (e['type'] === 'Almuerzo') return 'Cocinero'
           } */
           return (
             // results && results.map((e, index) => (
-            <section className="cajaInicio">
-              {editProduct[e.id] ? null : <><p id="textoCorreoInvalido" className="textoCorreoInvalido">Imagen:</p>
+            <section key={`officeProductsComponent${e['id']}`} className="cajaInicio">
+              {editProduct[e.id] ? null : <>
+                <p id="textoCorreoInvalido" className="textoCorreoInvalido">Imagen:</p>
                 <img src={e['image']} alt={e['name']}></img><br></br>
                 <p id="textoCorreoInvalido" className="textoCorreoInvalido">Nombre: {e['name']}</p><br></br>
                 <p id="textoCorreoInvalido" className="textoCorreoInvalido">Precio: {e['price']}</p><br></br>
                 <p id="textoCorreoInvalido" className="textoCorreoInvalido">Tipo: {e['type']}</p><br></br>
-                <div className="amountBox">
-                  {/* <p id={index} onClick={() => { setCounter(counter - 1); console.log(index) }}>{'<'}</p>
-            <p id={`counter${index}`}>{counter}</p> */}
+
+                {/* <div className="amountBox"> */}
 
                   <button
                     onClick={() => { showEditProductForm(e.id) }}
@@ -144,7 +137,7 @@ function OfficeProducts() {
                     className="checkoutBoxButtons"
                   >Eliminar producto</button>
 
-                </div></>}
+                {/* </div> */}</>}
 
               {editProduct[e.id] ? <><input
                 // data-testid="emailInput"

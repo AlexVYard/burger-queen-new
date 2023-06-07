@@ -1,27 +1,25 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Keania+One&family=Patrick+Hand&family=Roboto+Mono:ital@1&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Keania+One&family=Patrick+Hand&family=Roboto+Mono:ital@1&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 12.5px;
-}
-
-body,
-#root {
-  height: 100vh;
-  width:100%
+  font-family: 'Verdana', sans-serif;
+  background-attachment: fixed;
+  /* font-size: 12.5px; */
 }
 
 .PantallaInicio,
 .kitchenScreen,
 .officeScreen {
-  height: 100%;
-  font-family: 'Verdana', sans-serif;
+  /* height: 100vh; */
+  width: 100vw;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 .PantallaInicio {
+  height: 100vh;
   background-image: url("./img/img_fondo.png");
   display: flex;
   align-items: center;
@@ -41,6 +39,7 @@ body,
 }
 
 .officeScreen {
+  height: 100vh;
   background-image: url("./img/img_officeScreen.jpg");
 }
 
@@ -51,22 +50,18 @@ body,
   padding: 20px 50px;
   width: 285px;
   display: grid;
-  margin: 0px auto;
-  align-items: center;
+  margin: 20px auto;
+  /* align-items: center; */
   justify-items: center;
   background-color: white;
   border-radius: 15px;
   height: auto;
 }
 
-h1 {
-  font-size: 25px;
-}
-
 .cajaInicio {
   width: 280px;
-  flex-direction: column;
-  justify-content: space-around;
+  /* flex-direction: column; */
+  /* justify-content: space-around; */
 }
 
 .cajaInicio>img {
@@ -77,8 +72,22 @@ h1 {
   width: 100%;
 }
 
+.kitchenBox {
+  color:#000000;
+  padding: 20px 50px;
+  display: grid;
+  margin: 20px auto;
+  align-items: center;
+  justify-items: center;
+  background-color: white;
+  border-radius: 15px;
+  height: auto;
+  width: 350px;
+}
+
 button {
-  width: 144px;
+  padding: 0 20px 0 20px;
+  width: auto;
   background-color: #4D94FF;
   color: white;
   border: 0px;
@@ -90,6 +99,11 @@ button {
   display: flex;
   flex-direction: row;
 }
+
+/* .checkoutBoxButtons {
+  padding: 0 20px 0 20px;
+  width: auto;
+} */
 
 .cajaInicio>input {
   width: 100%;
@@ -107,6 +121,7 @@ button {
 .textoCorreoInvalido {
   color: #D80000;
   text-align: center;
+  font-size: 12.5px;
 }
 
 input {
@@ -122,20 +137,9 @@ input {
 .header {  
   display: flex;
   list-style: none;
-  gap: 2rem;
-  padding: 5px 2rem;
-  background-color: #ffffff;
-  color:#000000
-}
-
-li {
-  font-size: 16px;
-}
-
-h3 {
-  font-size: 20px;
-}
-
-h4 {
-  font-size: 20px;
+  gap: 1rem;
+  padding: 10px 1rem;
+  text-decoration: none;
+  /* background-color: #ffffff;
+  color:#000000 */
 }

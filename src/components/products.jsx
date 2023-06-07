@@ -3,13 +3,11 @@ import /* React,  */ { /* useState,  */useEffect } from 'react'
 import './styles.css';
 // import { signIn } from '../scripts/signIn';
 import { database } from '../scripts/database';
-import { useCheckAuth } from '../scripts/checkAuth';
+// import { useCheckAuth } from '../scripts/checkAuth';
 // import { getElementError } from '@testing-library/react'
 // import ReactDOM from "react-dom"
 
 function Products({ filter, cart, addToCart, products, setProducts }) {
-
-  useCheckAuth()
 
   // const [results, setResults] = useState()
   // const [cart, addToCart] = useState([]);

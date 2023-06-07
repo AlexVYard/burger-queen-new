@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import /* React,  */{ useState, useEffect } from 'react'
 import { /* Navigate,  */useNavigate } from "react-router-dom"
 // import { postOrder } from '../scripts/postOrder';
 import { database } from '../scripts/database';
+// import { useCheckAuth } from '../scripts/checkAuth';
 
 function Kitchen() {
 
-  let [results, setResults] = useState()
+  let [orders, setOrders] = useState()
   // const [order, orderReady] = useState([])
   // const [readyButtonText, setReadyButtonText] = useState('Listo')
   // const [noText, setNoText] = useState(true)
@@ -37,17 +38,12 @@ function Kitchen() {
 
   useEffect(() => {  // getting info from database
     // fetch data
-    const resultsFetch = async () => {
-      const results = await database('orders', 'GET', localStorage.getItem("accessToken"))
-      setResults(results);
-      if (results === 'jwt expired') {
-        localStorage.setItem("accessToken", results['accessToken'])
-        localStorage.setItem("user-info", JSON.stringify(results))
-        navigate('/login')
-      }
+    const ordersFetch = async () => {
+      const orders = await database('orders', 'GET', localStorage.getItem("accessToken"))
+      setOrders(orders);
       // console.log(results[0])
     }
-    resultsFetch()
+    ordersFetch()
     
     // console.log("results", results)
   }, [navigate]);
@@ -62,21 +58,25 @@ function Kitchen() {
       await database(`orders/${e.id}`, 'PATCH', localStorage.getItem("accessToken"), body2)
       // console.log("delivered")
     }    
-    results = await database('orders', 'GET', localStorage.getItem("accessToken"))    
-    setResults(results)
-    return results
+    orders = await database('orders', 'GET', localStorage.getItem("accessToken"))    
+    setOrders(orders)
+    return orders
   }
 
   return (
     <main className="kitchenScreen">
-      {results && results.map((e, index) => { // renders products
+      {orders && orders.map((e/* , index */) => { // renders products
         // readyButtonCall(e['status'])
         // console.log(e.id)
         return (
           // results && results.map((e, index) => (
-          <section key={`kitchenScreenSection${e['id']}`}  className="cartBox">
+          <section key={`kitchenScreenSection${e['id']}`}  className="kitchenBox">
+            <p
+              id="textoCorreoInvalido"
+              className="textoCorreoInvalido">
+            STATUS: {e['status']}<br></br><br></br></p>
 
-            {e['products'].map((products, index) => {
+            {e['products'].map((products/* , index */) => {
 
               // console.log(products['product']['name'])
               return (
@@ -94,8 +94,6 @@ function Kitchen() {
             <p
               id="textoCorreoInvalido"
               className="textoCorreoInvalido">
-              ID: {e.id}<br></br>
-              STATUS: {e['status']}<br></br>
               LOGGED: {e['dataEntry']}<br></br>
               {/* {readyText && <p
                 style={{ visibility: readyText ? 'visible' : 'hidden' }}
