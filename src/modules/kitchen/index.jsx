@@ -1,7 +1,7 @@
 import /* React,  */{ useState, useEffect } from 'react'
 import { /* Navigate,  */useNavigate } from "react-router-dom"
 // import { postOrder } from '../scripts/postOrder';
-import { database } from '../scripts/database';
+import { database } from '../../features/database';
 // import { useCheckAuth } from '../scripts/checkAuth';
 
 function Kitchen() {

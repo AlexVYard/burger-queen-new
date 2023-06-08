@@ -1,14 +1,14 @@
 // import logo from './logo.svg';
 // import { /* Link,  */Route, Routes, Router/* , useNavigate */ } from 'react-router-dom'
 import {/*  BrowserRouter as Router,  */Routes, Route } from 'react-router-dom'
-import Login from './components/login.jsx';
-import Menu from './components/menu.jsx';
-import Kitchen from './components/kitchen.jsx';
-import Office from './components/office.jsx';
-import OfficeProducts from './components/officeProducts.jsx';
+import Login from './modules/login/index.jsx';
+import Menu from './modules/menu/index.jsx';
+import Kitchen from './modules/kitchen/index.jsx';
+import Office from './modules/office/index.jsx';
+import OfficeProducts from './modules/office/components/officeProducts.jsx';
 // import { onNavigate } from './lib/onNavigate.js';
 // import './App.css';
-import PrivateRoutes from './scripts/privateRoutes.jsx'
+import PrivateRoutes from './features/privateRoutes.jsx'
 // import Product from './components/product.js';
 
 function App() {

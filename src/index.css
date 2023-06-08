@@ -20,27 +20,27 @@
 
 .PantallaInicio {
   height: 100vh;
-  background-image: url("./img/img_fondo.png");
+  background-image: url("./assets/images/wallpaperCoffeeTable.png");
   display: flex;
   align-items: center;
 }
 
 .kitchenScreen,
 .officeScreen {
-  background-image: url("./img/img_kitchenScreen.jpg");
+  /* background-image: url("./assets/images/"); */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
 }
 
 .kitchenScreen {
-  background-image: url("./img/img_kitchenScreen.jpg");
+  background-image: url("./assets/images/wallpaperKitchenTable.jpg");
 
 }
 
 .officeScreen {
   height: 100vh;
-  background-image: url("./img/img_officeScreen.jpg");
+  background-image: url("./assets/images/wallpaperCafeInside.jpg");
 }
 
 .cajaInicio,

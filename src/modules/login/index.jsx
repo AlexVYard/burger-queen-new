@@ -2,10 +2,10 @@
 // import { onNavigate } from './lib/onNavigate.js';
 import /* React,  */{ useState, useEffect } from 'react'
 import { /* Navigate,  */useNavigate } from "react-router-dom"
-import './styles.css';
+// import './styles.css';
 // import { signIn } from '../scripts/signIn';
-import { database } from '../scripts/database';
-import logo from './img/img_libro_rojo.png'
+import { database } from '../../features/database'
+import logo from '../../assets/images/redMug.png'
 // import { getElementError } from '@testing-library/react'
 // import ReactDOM from "react-dom"
 

@@ -3,7 +3,7 @@ import /* React,  */ { useState/* , useEffect  */} from 'react'
 /* import { database } from '../scripts/database';
 import { useCheckAuth } from '../scripts/checkAuth'; */
 // import MenuHeader from './menuHeader';
-import Products from '../../components/products';
+import Products from './components/products'
 import Cart from './components/cart';
 // import { useCheckAuth } from '../scripts/checkAuth';
 
