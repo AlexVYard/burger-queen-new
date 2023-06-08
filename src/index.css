@@ -46,7 +46,7 @@
 .cajaInicio,
 .cartBox,
 .officeBox {
-  color:#000000;
+  color: #000000;
   padding: 20px 50px;
   width: 285px;
   display: grid;
@@ -73,7 +73,7 @@
 }
 
 .kitchenBox {
-  color:#000000;
+  color: #000000;
   padding: 20px 50px;
   display: grid;
   margin: 20px auto;
@@ -134,12 +134,24 @@ input {
   background-color: #f8f8f8;
 }
 
-.header {  
+.header {
   display: flex;
   list-style: none;
-  gap: 1rem;
   padding: 10px 1rem;
   text-decoration: none;
+  justify-content: space-between
+    /* justify-content: space-evenly; */
+    /* background-color: #ffffff;
+  color:#000000 */
+}
+
+.leftHeader {
+  display: flex;
+  /* list-style: none; */
+  gap: 1rem;
+  /* padding: 10px 1rem; */
+  /* text-decoration: none; */
+  /* justify-content: space-evenly; */
   /* background-color: #ffffff;
   color:#000000 */
 }

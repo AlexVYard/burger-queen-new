@@ -1,4 +1,4 @@
-import /* React,  */ { useState/* , useEffect  */} from 'react'
+import /* React,  */ { useState/* , useEffect  */ } from 'react'
 // import { postOrder } from '../scripts/postOrder';
 /* import { database } from '../scripts/database';
 import { useCheckAuth } from '../scripts/checkAuth'; */
@@ -7,6 +7,7 @@ import Products from './components/products'
 import Cart from './components/cart';
 // import { useCheckAuth } from '../scripts/checkAuth';
 import { logout } from '../../features/logout';
+// import Header from './components/header';
 
 function Menu() {
 
@@ -16,12 +17,20 @@ function Menu() {
 
   return (
     <>
-      <div className="header">
-        <li onClick={() => { setFilter('') }}>Todo</li>
-        <li onClick={() => { setFilter('Desayuno') }}>Desayuno</li>
-        <li onClick={() => { setFilter('Almuerzo') }}>Almuerzo y cena</li>
-        <li onClick={() => { logout() }}>Logout</li>
-      </div>
+      <section className="header">
+
+        <div className="leftHeader">
+          <li onClick={() => { setFilter('') }}>Todo</li>
+          <li onClick={() => { setFilter('Desayuno') }}>Desayuno</li>
+          <li onClick={() => { setFilter('Almuerzo') }}>Almuerzo y cena</li>
+        </div>
+
+        <div className="rightHeader">
+          <li onClick={() => { logout() }}>Logout</li>
+        </div>
+
+      </section>
+      {/* <Header filter={filter} setFilter={setFilter} /> */}
 
       <main className="PantallaInicio">
 
