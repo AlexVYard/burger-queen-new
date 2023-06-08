@@ -6,6 +6,7 @@ import { useCheckAuth } from '../scripts/checkAuth'; */
 import Products from './components/products'
 import Cart from './components/cart';
 // import { useCheckAuth } from '../scripts/checkAuth';
+import { logout } from '../../features/logout';
 
 function Menu() {
 
@@ -13,22 +14,13 @@ function Menu() {
   const [cart, addToCart] = useState([])
   let [filter, setFilter] = useState('')
 
-  /* useEffect(() => {
-    const resultsFetch = async () => {
-      let products = await database('products', 'GET', localStorage.getItem("accessToken"))
-      await useCheckAuth(products)
-      products = products.filter(value => value.type.includes(filter))
-      setProducts(products);
-    }
-    resultsFetch()
-  }, [filter]) */
-
   return (
     <>
       <div className="header">
         <li onClick={() => { setFilter('') }}>Todo</li>
         <li onClick={() => { setFilter('Desayuno') }}>Desayuno</li>
         <li onClick={() => { setFilter('Almuerzo') }}>Almuerzo y cena</li>
+        <li onClick={() => { logout() }}>Logout</li>
       </div>
 
       <main className="PantallaInicio">
