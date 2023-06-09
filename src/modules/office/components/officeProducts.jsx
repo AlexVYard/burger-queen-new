@@ -119,7 +119,7 @@ function OfficeProducts() {
             // results && results.map((e, index) => (
             <section key={`officeProductsComponent${e['id']}`} className="cajaInicio">
               {editProduct[e.id] ? null : <>
-                <p id="textoCorreoInvalido" className="textoCorreoInvalido">Imagen:</p>
+                <p id="textoCorreoInvalido" className="textoCorreoInvalido">Imagen:</p><br></br>
                 <img src={e['image']} alt={e['name']}></img><br></br>
                 <p id="textoCorreoInvalido" className="textoCorreoInvalido">Nombre: {e['name']}</p><br></br>
                 <p id="textoCorreoInvalido" className="textoCorreoInvalido">Precio: {e['price']}</p><br></br>
@@ -130,8 +130,7 @@ function OfficeProducts() {
                   <button
                     onClick={() => { showEditProductForm(e.id) }}
                     className="blueButton"
-                  >Editar datos</button> <br></br><br></br>
-
+                  >Editar datos</button><br></br>
                   <button
                     onClick={() => { deleteProduct(e.id) }}
                     className="redButton"

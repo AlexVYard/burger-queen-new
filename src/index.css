@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Keania+One&family=Patrick+Hand&family=Roboto+Mono:ital@1&display=swap');
 
 * {
+  align-items: center;  
   margin: 0;
   padding: 0;
   box-sizing: border-box;

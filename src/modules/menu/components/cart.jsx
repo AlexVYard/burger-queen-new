@@ -1,4 +1,4 @@
-import /* React,  */{ useState/* , useEffect */ } from 'react'
+import /* React,  */ { useState/* , useEffect */ } from 'react'
 // import { /* Navigate,  */useNavigate } from "react-router-dom"
 // import './styles.css';
 // import { signIn } from '../scripts/signIn';
@@ -31,7 +31,7 @@ function Cart({ cart, addToCart, results, setResults }/* { menuToProducts } */) 
   }
 
   function postOrder() {
-    
+
     if (client === '') {
       setErrorClient(true)
     } else {
@@ -55,7 +55,7 @@ function Cart({ cart, addToCart, results, setResults }/* { menuToProducts } */) 
         // window.location.reload();
         // results = results.filter(value=>value.type.includes(filter))
         setClient("")
-        setSuccessfulOrder(false)        
+        setSuccessfulOrder(false)
         addToCart([])
         results = await database('products', 'GET', localStorage.getItem("accessToken"))
         setResults(results)
@@ -79,7 +79,7 @@ function Cart({ cart, addToCart, results, setResults }/* { menuToProducts } */) 
             onChange={(e) => setClient(e.target.value)}
           ></input>
           <br></br><br></br>
-          
+
 
           {errorClient && <p
             id="textoCorreoInvalido"
@@ -92,11 +92,13 @@ function Cart({ cart, addToCart, results, setResults }/* { menuToProducts } */) 
           {cart.map((item, index) => {
             //console.log(item)
             return (
-              <div key={`cartItemsDiv${item['id']}`}className="cart">
+              <div key={`cartItemsDiv${item['id']}`} className="cart">
                 <h3>{item.product.name}</h3>
                 <section className="quantitybuttons">
 
-                  <h4
+                  <button
+                    className='blueButton'
+                    style={{ fontSize: 25 }}
                     onClick={() => {
                       if (item.qty !== 0) {
                         let itemTemp = item
@@ -112,11 +114,13 @@ function Cart({ cart, addToCart, results, setResults }/* { menuToProducts } */) 
                         /* let x = cart; */
                         addToCart([...cart]);
                       }
-                    }}>-</h4>
+                    }}>-</button>
 
                   <h4>&nbsp;&nbsp;{item.qty}&nbsp;&nbsp;</h4>
 
-                  <h4
+                  <button
+                    className='blueButton'
+                    style={{ fontSize: 15 }}
                     onClick={() => {
                       let itemTemp = item
                       item.qty += 1;
@@ -125,7 +129,7 @@ function Cart({ cart, addToCart, results, setResults }/* { menuToProducts } */) 
                       // addToCart([...cart])
                       addToCart([...cart, itemTemp])
                       console.log(item)
-                    }}>+</h4>
+                    }}>+</button>
 
                 </section>
                 <p>Precio: {item.product.price * item.qty}</p>
