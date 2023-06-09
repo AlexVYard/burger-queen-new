@@ -130,7 +130,7 @@ function Cart({ cart, addToCart, results, setResults }/* { menuToProducts } */) 
                 </section>
                 <p>Precio: {item.product.price * item.qty}</p>
                 <button
-                  className="checkoutBoxButtons"
+                  className="redButton"
                   onClick={() => {
                     // remove item from cart
                     cart.splice(index, 1);
@@ -153,7 +153,7 @@ function Cart({ cart, addToCart, results, setResults }/* { menuToProducts } */) 
           <h1>Total: {cart.reduce((a, b) => a + (b.product.price * b.qty), 0)}</h1><br></br>  {/* price total */}
           {/* <p>{cart.reduce((a, b) => a + b.price, 0)}$</p> */}
           <button
-            className="checkoutBoxButtons"
+            className="blueButton"
             onClick={() => { postOrder() }}
           >Enviar a cocina</button>
 

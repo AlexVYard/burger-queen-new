@@ -81,7 +81,7 @@ function Products({ filter, cart, addToCart, products, setProducts }) {
 
               <button
                 onClick={() => { addToCartButton(e, index)/* ; console.log("cart", cart); console.log("e", e) */ }}
-                className="checkoutBoxButtons"
+                className="blueButton"
               >Agregar al carrito</button>
 
             </div>

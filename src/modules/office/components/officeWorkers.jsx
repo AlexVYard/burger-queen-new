@@ -126,12 +126,12 @@ function Workers() {
               <button
                 onClick={() => { showEditUserForm(e.id)/* setEditUser(e.id); setUserData(e.id)  */ }}
                 /* {...editUser === e ? true : false} */
-                className="checkoutBoxButtons"
+                className="blueButton"
               >Editar datos</button><br></br>
 
               <button
                 onClick={() => { deleteUser(e.id) }}
-                className="checkoutBoxButtons"
+                className="redButton"
               >Eliminar usuario</button></>}
 
             {/* <div className="amountBox"> */}
@@ -176,12 +176,12 @@ function Workers() {
 
               <button
                 onClick={() => { acceptEditUser(e)/* ; setEmail(e['email']) *//* database(`users/${e.id}`, 'PATCH', localStorage.getItem("accessToken"), body) *//* ; setError(true) */ }}
-                className="checkoutBoxButtons"
+                className="blueButton"
               >Aceptar</button><br></br>
 
               <button
                 onClick={() => { showEditUserForm(e.id)/* setEditUser(false); setUserData(true) */ }}
-                className="checkoutBoxButtons"
+                className="blueButton"
               >Cancelar</button></> : null}
 
             {/* </div> */}
@@ -202,7 +202,7 @@ function Workers() {
 
           <button
             onClick={() => { setAddUserForm(true); setAddUserBox(false) }}
-            className="checkoutBoxButtons"
+            className="blueButton"
           >Agregar trabajadores</button>{/* <br></br><br></br> */}
 
           {/* <button
@@ -257,13 +257,13 @@ function Workers() {
         <button
           // data-testid="signInButton"
           onClick={() => { addUser() }}
-          className="checkoutBoxButtons"
+          className="blueButton"
         >Crear usuario</button><br></br>
 
         <button
           // data-testid="signInButton"
           onClick={() => {/*  setError(true); setErrorText(); */ setAddUserForm(false); setAddUserBox(true) }}
-          className="checkoutBoxButtons"
+          className="blueButton"
         >Cancelar</button>
       </section>}
     </>

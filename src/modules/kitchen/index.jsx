@@ -16,13 +16,13 @@ function Kitchen() {
 
   const readyButtonText = (status) => {
     if (status === 'pending') {
-      return 'Listo'
+      return 'LISTO'
     }
     if (status === 'processed') {
-      return 'Entregado'
+      return 'ENTREGADO'
     }
     if (status === 'delivered') {
-      return 'Comido'
+      return 'COMIDO'
     }
   }
 
@@ -135,7 +135,7 @@ function Kitchen() {
                     // setResults(results)
                     // window.location.reload(false)
                   }}
-                  className="checkoutBoxButtons"
+                  className="blueButton"
                 >{readyButtonText(e['status'])}</button>
 
               </div>

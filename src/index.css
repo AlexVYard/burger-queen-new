@@ -88,13 +88,19 @@
 button {
   padding: 0 20px 0 20px;
   width: auto;
-  background-color: #4D94FF;
   color: white;
   border: 0px;
   border-radius: 15px;
   height: 45px;
 }
 
+.redButton {
+  background-color: #ff4d4d;
+}
+
+.blueButton {
+  background-color: #4D94FF;
+}
 .quantitybuttons {
   display: flex;
   flex-direction: row;

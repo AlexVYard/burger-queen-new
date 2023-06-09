@@ -129,12 +129,12 @@ function OfficeProducts() {
 
                   <button
                     onClick={() => { showEditProductForm(e.id) }}
-                    className="checkoutBoxButtons"
+                    className="blueButton"
                   >Editar datos</button> <br></br><br></br>
 
                   <button
                     onClick={() => { deleteProduct(e.id) }}
-                    className="checkoutBoxButtons"
+                    className="redButton"
                   >Eliminar producto</button>
 
                 {/* </div> */}</>}
@@ -178,13 +178,13 @@ function OfficeProducts() {
                 <button
                   // data-testid="signInButton"
                   onClick={() => { /* setName(e['name']); setPrice(e['price']); setImage(e['image']);  */acceptEditProduct(e) }}
-                  className="checkoutBoxButtons"
+                  className="blueButton"
                 >Aceptar</button><br></br>
 
                 <button
                   // data-testid="signInButton"
                   onClick={() => {/*  setError(true); setErrorText(); */ showEditProductForm(e.id) }}
-                  className="checkoutBoxButtons"
+                  className="blueButton"
                 >Cancelar</button></> : null}
             </section>
           )
@@ -203,7 +203,7 @@ function OfficeProducts() {
 
             <button
               onClick={() => { setAddProductForm(true); setAddProductBox(false) }}
-              className="checkoutBoxButtons"
+              className="blueButton"
             >Agregar productos</button>{/* <br></br><br></br> */}
 
             {/* <button
@@ -256,13 +256,13 @@ function OfficeProducts() {
           <button
             // data-testid="signInButton"
             onClick={() => { addProduct() }}
-            className="checkoutBoxButtons"
+            className="blueButton"
           >Crear producto</button><br></br>
 
           <button
             // data-testid="signInButton"
             onClick={() => {/*  setError(true); setErrorText(); */ setAddProductForm(false); setAddProductBox(true) }}
-            className="checkoutBoxButtons"
+            className="blueButton"
           >Cancelar</button>
         </section>}
       </main>
