@@ -5,6 +5,7 @@ import /* React,  */ { useState/* , useEffect */ } from 'react'
 import { database } from '../../../features/database'
 // import { getElementError } from '@testing-library/react'
 // import ReactDOM from "react-dom"
+import trashcan from '../../../assets/images/trashcan.png'
 
 function Cart({ cart, addToCart, results, setResults }/* { menuToProducts } */) {
 
@@ -93,56 +94,66 @@ function Cart({ cart, addToCart, results, setResults }/* { menuToProducts } */) 
             //console.log(item)
             return (
               <div key={`cartItemsDiv${item['id']}`} className="cart">
-                <h3>{item.product.name}</h3>
-                <section className="quantitybuttons">
 
-                  <button
-                    className='blueButton'
-                    style={{ fontSize: 25 }}
-                    onClick={() => {
-                      if (item.qty !== 0) {
+                <div className='divCart'>
+
+                  <h3>{item.product.name}</h3>
+
+                  <section className="quantitybuttons">
+                    <button
+                      className='blueButton'
+                      style={{ fontSize: 25 }}
+                      onClick={() => {
+                        if (item.qty !== 0) {
+                          let itemTemp = item
+                          item.qty -= 1;
+                          cart.splice(index, 1);
+                          // console.log("cart", cart)
+                          // addToCart([...cart])
+                          addToCart([...cart, itemTemp])
+                          console.log(item)
+                        }
+                        if (item.qty === 0) {
+                          cart.splice(index, 1);
+                          /* let x = cart; */
+                          addToCart([...cart]);
+                        }
+                      }}
+                    >-</button>
+                    <h4>&nbsp;&nbsp;{item.qty}&nbsp;&nbsp;</h4>
+                    <button
+                      className='blueButton'
+                      style={{ fontSize: 15 }}
+                      onClick={() => {
                         let itemTemp = item
-                        item.qty -= 1;
+                        item.qty += 1;
                         cart.splice(index, 1);
                         // console.log("cart", cart)
                         // addToCart([...cart])
                         addToCart([...cart, itemTemp])
                         console.log(item)
-                      }
-                      if (item.qty === 0) {
-                        cart.splice(index, 1);
-                        /* let x = cart; */
-                        addToCart([...cart]);
-                      }
-                    }}>-</button>
+                      }}
+                    >+</button>
+                  </section><br></br>
 
-                  <h4>&nbsp;&nbsp;{item.qty}&nbsp;&nbsp;</h4>
+                </div>
 
-                  <button
-                    className='blueButton'
-                    style={{ fontSize: 15 }}
+                <div className='rightDiv'>
+                  <p>{/* Precio:  */}${item.product.price * item.qty}</p>
+                  <img
+                    style={{ height: 40 }}
+                    src={trashcan}
+                    // className="redButton"
                     onClick={() => {
-                      let itemTemp = item
-                      item.qty += 1;
+                      // remove item from cart
                       cart.splice(index, 1);
-                      // console.log("cart", cart)
-                      // addToCart([...cart])
-                      addToCart([...cart, itemTemp])
-                      console.log(item)
-                    }}>+</button>
+                      /* let x = cart; */
+                      addToCart([...cart]);
+                    }}
+                  ></img>
+                  
+                </div>
 
-                </section>
-                <p>Precio: {item.product.price * item.qty}</p>
-                <button
-                  className="redButton"
-                  onClick={() => {
-                    // remove item from cart
-                    cart.splice(index, 1);
-                    /* let x = cart; */
-                    addToCart([...cart]);
-                  }}
-                >Quitar del carrito</button>
-                <br></br><br></br>
               </div>
             );
           })}

@@ -73,6 +73,11 @@
   width: 100%;
 }
 
+.cartBox {
+  padding: 20px 30px;
+  width: 300px;
+}
+
 .kitchenBox {
   color: #000000;
   padding: 20px 50px;
@@ -161,4 +166,19 @@ input {
   /* justify-content: space-evenly; */
   /* background-color: #ffffff;
   color:#000000 */
+}
+
+.cart {
+  display: flex;
+  justify-content: space-between
+}
+
+.rightDiv {
+  /* margin:0;
+  padding: 0; */
+  display:flex;
+  flex-direction: column;
+  /* justify-content: end; */
+  /* justify-items: end; */
+  align-items: end;
 }

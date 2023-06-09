@@ -69,7 +69,7 @@ function Login() {
         <button
           // data-testid="signInButton"
           onClick={() => { setError(true); setErrorText(); signIn() }}
-          className="checkoutBoxButtons"
+          className="blueButton"
         >Ingresar</button>
       </section>
     </main>
