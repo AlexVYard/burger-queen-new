@@ -90,8 +90,9 @@ function Kitchen() {
             <section key={`kitchenScreenSection${e['id']}`} className="kitchenBox">
               <p
                 id="textoCorreoInvalido"
-                className="textoCorreoInvalido">
-                STATUS: {e['status']}<br></br><br></br></p>
+                className="textoCorreoInvalido"
+                style={{ fontWeight: 'bold' }}
+              >STATUS: {e['status']}<br></br><br></br></p>
 
               {e['products'].map((products/* , index */) => {
 
@@ -102,6 +103,7 @@ function Kitchen() {
                     <p
                       id="textoCorreoInvalido"
                       className="textoCorreoInvalido"
+                      style={{ fontWeight: 'bold' }}
                     >{products['product']['name']} x{products['qty']}</p>
                   </>
                 )
