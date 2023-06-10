@@ -6,8 +6,8 @@ import { useCheckAuth } from '../scripts/checkAuth'; */
 import Products from './components/products'
 import Cart from './components/cart';
 // import { useCheckAuth } from '../scripts/checkAuth';
-import { logout } from '../../features/logout';
-// import Header from './components/header';
+// import { logout } from '../../features/logout';
+import Header from './components/header';
 
 function Menu() {
 
@@ -17,7 +17,7 @@ function Menu() {
 
   return (
     <>
-      <section className="header">
+      {/* <section className="header">
 
         <div className="leftHeader">
           <li onClick={() => { setFilter('') }}>Todo</li>
@@ -29,8 +29,8 @@ function Menu() {
           <li onClick={() => { logout() }}>Logout</li>
         </div>
 
-      </section>
-      {/* <Header filter={filter} setFilter={setFilter} /> */}
+      </section> */}
+      <Header /* filter={filter} */ setFilter={setFilter} />
 
       <main className="PantallaInicio">
 

@@ -1,7 +1,7 @@
-// import { logout } from "../../../features/logout"
+import { logout } from "../../../features/logout"
 // import { useState } from "react"
 
-function Header() {
+function Header({setFilter}) {
 
   // let [filter, setFilter] = useState('')
 
@@ -21,12 +21,19 @@ function Header() {
     } */
 
   return (
-    {/* <div className="header">
-      <li onClick={() => { setFilter('') }}>Todo</li>
-      <li onClick={() => { setFilter('Desayuno') }}>Desayuno</li>
-      <li onClick={() => { setFilter('Almuerzo') }}>Almuerzo y cena</li>
-      <li onClick={() => { logout() }}>Logout</li>
-    </div> */}
+    <section className="header">
+
+      <div className="leftHeader">
+        <li onClick={() => { setFilter('') }}>Todo</li>
+        <li onClick={() => { setFilter('Desayuno') }}>Desayuno</li>
+        <li onClick={() => { setFilter('Almuerzo') }}>Almuerzo y cena</li>
+      </div>
+
+      <div className="rightHeader">
+        <li onClick={() => { logout() }}>Logout</li>
+      </div>
+
+    </section>
   )
 }
 
