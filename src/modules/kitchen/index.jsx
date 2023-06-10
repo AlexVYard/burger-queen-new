@@ -3,7 +3,8 @@ import /* React,  */ { useState, useEffect } from 'react'
 // import { postOrder } from '../scripts/postOrder';
 import { database } from '../../features/database';
 // import { useCheckAuth } from '../scripts/checkAuth';
-import { logout } from '../../features/logout';
+// import { logout } from '../../features/logout';
+import Header from './components/header';
 
 function Kitchen() {
 
@@ -66,20 +67,7 @@ function Kitchen() {
 
   return (
     <>
-      <section className="header">
-
-        <div className="leftHeader">
-          <li onClick={() => { setFilter('') }}>Todo</li>
-          <li onClick={() => { setFilter('pending') }}>Pendientes</li>
-          <li onClick={() => { setFilter('processed') }}>Procesado</li>
-          <li onClick={() => { setFilter('delivered') }}>Entregado</li>
-        </div>
-
-        <div className="rightHeader">
-          <li onClick={() => { logout() }}>Logout</li>
-        </div>
-
-      </section>
+      <Header setFilter={setFilter} />
 
       <main className="kitchenScreen">
         {orders && orders.map((e/* , index */) => { // renders products
