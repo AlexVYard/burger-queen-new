@@ -107,10 +107,12 @@ function Cart({ cart, addToCart, results, setResults }/* { menuToProducts } */) 
                         if (item.qty !== 0) {
                           let itemTemp = item
                           item.qty -= 1;
-                          cart.splice(index, 1);
+                          delete cart[index]
+                          cart.splice(index, 1, itemTemp);
+                          // cart.splice(index, 1);
                           // console.log("cart", cart)
-                          // addToCart([...cart])
-                          addToCart([...cart, itemTemp])
+                          // addToCart([...cart, itemTemp])
+                          addToCart([...cart])
                           console.log(item)
                         }
                         if (item.qty === 0) {
@@ -127,10 +129,11 @@ function Cart({ cart, addToCart, results, setResults }/* { menuToProducts } */) 
                       onClick={() => {
                         let itemTemp = item
                         item.qty += 1;
-                        cart.splice(index, 1);
+                        cart.splice(index, 1, itemTemp);
                         // console.log("cart", cart)
                         // addToCart([...cart])
-                        addToCart([...cart, itemTemp])
+                        // addToCart([...cart, itemTemp])
+                        addToCart([...cart])
                         console.log(item)
                       }}
                     >+</button>
