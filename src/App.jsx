@@ -5,7 +5,7 @@ import Login from './modules/login/index.jsx';
 import Menu from './modules/menu/index.jsx';
 import Kitchen from './modules/kitchen/index.jsx';
 import Office from './modules/office/index.jsx';
-import OfficeProducts from './modules/office/components/officeProducts.jsx';
+import OfficeProducts from './modules/office/components/products.jsx';
 // import { onNavigate } from './lib/onNavigate.js';
 // import './App.css';
 import PrivateRoutes from './features/privateRoutes.jsx'

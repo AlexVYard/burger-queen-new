@@ -2,7 +2,7 @@ import /* React,  */ { useState, useEffect } from 'react'
 // import { /* Navigate,  */useNavigate } from "react-router-dom"
 // import { postOrder } from '../scripts/postOrder';
 import { database } from '../../../features/database';
-import Header from './officeHeader';
+import Header from './header';
 
 function OfficeProducts() {
 

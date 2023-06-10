@@ -7,7 +7,7 @@ import { database } from '../../../features/database'
 // import { getElementError } from '@testing-library/react'
 // import ReactDOM from "react-dom"
 
-function Products({ filter, cart, addToCart, products, setProducts }) {
+function MenuProducts({ filter, cart, addToCart, products, setProducts }) {
 
   // const [results, setResults] = useState()
   // const [cart, addToCart] = useState([]);
@@ -92,4 +92,4 @@ function Products({ filter, cart, addToCart, products, setProducts }) {
   )
 }
 
-export default Products;
+export default MenuProducts;
