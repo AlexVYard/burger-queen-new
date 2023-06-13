@@ -26,6 +26,7 @@ function Login() {
   })
 
   async function signIn() {
+    setErrorText("Espere por favor")
     let body = { email, password }
     const result = await database('login', 'POST', null, body)
     localStorage.setItem("accessToken", result['accessToken'])
@@ -34,6 +35,7 @@ function Login() {
     // console.log('accessToken: ', result['accessToken'])
 
     if (typeof result === 'object') {
+      // setErrorText("Espere por favor")
       navigate('/menu')
     } else {
       setErrorText(result)
@@ -68,7 +70,7 @@ function Login() {
 
         <button
           // data-testid="signInButton"
-          onClick={() => { setError(true); setErrorText(); signIn() }}
+          onClick={() => { setError(true); /* setErrorText();  */signIn() }}
           className="blueButton"
         >Ingresar</button>
       </section>
