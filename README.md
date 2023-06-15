@@ -2,12 +2,19 @@
 
 ## Índice
 
+* [0. Preambulo](#1-preambulo)
 * [1. Resumen del proyecto](#1-resumen-del-proyecto)
 * [2. Herramientas usadas](#2-herramientas-usadas)
 * [3. Caracteristicas generales](#3-caracteristicas-generales)
 * [4. Funcionalidad](#4-funcionalidad)
 * [5. Despliegue](#5-despliegue)
 * [6. Recursos](#6-recursos)
+
+***
+
+## 0. Preambulo
+
+Este proyecto fue reconstruido del siguiente repositorio [Burger-Queen](https://github.com/AlexVYard/DEV004-burger-queen-api-client) usando vite en lugar de create-app-react
 
 ***
 
@@ -36,7 +43,7 @@ App para uso en restaurante, cuenta con vistas de uso para los meseros, cocinero
 * Se a usado React como framework.
 * El proyecto usa un API Mock para la base de datos.
 * Se a considerado principalmente su uso en tablet.
-* Cuenta con test unitarios.
+* Cuenta con test unitarios en el repositorio pasado. [Aquí](https://github.com/AlexVYard/DEV004-burger-queen-api-client) usando vite en lugar de create-app-react
 
 ***
 
@@ -87,7 +94,7 @@ El producto cuenta con 4 vistas una para cada cargo (mesero, cocinero y administ
 
 El proyecto desplegado y su mock respectivo se puede encontrar en los siguientes links:
 
-* [App](https://burger-queen-api-client-alexa.netlify.app/)
+* [App](https://burger-queen-new.vercel.app/)
 * [Mock](https://burger-queen-api-mock-alexa.glitch.me/)
 
 ***
