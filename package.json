@@ -1,5 +1,5 @@
 {
-  "name": "my-vue-app",
+  "name": "burger-queen-new",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,7 +7,6 @@
     "start": "npm run dev",
     "dev": "vite",
     "build": "vite build",
-    "test": "react-scripts test",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
