@@ -9,14 +9,14 @@ import { BrowserRouter/* , MemoryRouter *//* , Router */ } from "react-router-do
 // import Login from './components/login.js';
 import App from './App.jsx';
 import Kitchen from './modules/kitchen/index.jsx';
-import Office from './modules/office/index.jsx';
-import OfficeProducts from './modules/office/components/products/index.jsx';
+// import Office from './modules/office/index.jsx';
+// import OfficeProducts from './modules/office/components/products/index.jsx';
 // import { signIn } from './scripts/signIn';
 // import { postOrder } from './scripts/postOrder.js';
 // import { database } from './scripts/database.js';
 // import { render, queryByAttribute } from 'react-testing-library';
 
-describe('Login', () => {
+describe.only('Login', () => {
   test('Error', async () => {
     const user = userEvent.setup()
     render(<App />, { wrapper: BrowserRouter })
@@ -87,45 +87,30 @@ describe('Post Order', () => {
 describe('Kitchen Order', () => {
   test('Processed', async () => {
     render(<Kitchen />, { wrapper: BrowserRouter })
-    // const user = userEvent.setup()
 
-    // const navigate = useNavigate();
-
-    // navigate('/kitchen')
-
-    const notProcessedText1 = await screen.findAllByText(/Listo/i)
+    const notProcessedText1 = await screen.findAllByText(/LISTO/i)
     // console.log("1", notProcessedText1.length)
 
-    const orderReadyButton = await screen.findAllByText(/Listo/i)
+    const orderReadyButton = await screen.findAllByText(/LISTO/i)
     fireEvent.click(orderReadyButton[orderReadyButton.length - 1])
-    // const button = screen.getByTestId(`buttonid1`)
-    // fireEvent.click(button)
-    // console.log((orderReadyButton[orderReadyButton.length - 1]))
 
-    // render(<Kitchen />, { wrapper: BrowserRouter })
-    await expect(async () => {
-      await waitFor(
-        () => expect(notProcessedText2).toBe(notProcessedText1 - 1)
-      );
-    }).rejects.toEqual(expect.anything());
+    const notProcessedText2 = await screen.findAllByText(/LISTO/i)
 
-    /* setTimeout(async () => {
-      await screen.findAllByText(/Listo/i)
-    }, 1000); */
+    // await expect(async () => {
+      await waitFor(() => expect(notProcessedText2).toBe(notProcessedText1 - 1));
+    // }).rejects.toEqual(expect.anything());
 
-    const notProcessedText2 = await screen.findAllByText(/Listo/i)
-    // console.log("2", notProcessedText2.length)
+    // await (waitFor(() => screen.getByText(/Enviar a cocina/i),{timeout:1500}));
+
+    
+    console.log("1", notProcessedText1.length)
+    console.log("2", notProcessedText2.length)
 
     expect(notProcessedText1.length > notProcessedText2.length).toBe(true)
   })
 
   test('Delivered', async () => {
     render(<Kitchen />, { wrapper: BrowserRouter })
-    // const user = userEvent.setup()
-
-    // const navigate = useNavigate();
-
-    // navigate('/kitchen')
 
     const notDeliveredText1 = await screen.findAllByText(/Entregado/i)
     // console.log("1", notDeliveredText1.length)

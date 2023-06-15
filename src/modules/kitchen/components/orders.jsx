@@ -63,7 +63,7 @@ function Orders({filter, orders, setOrders}) {
     return orders
   }
 
-  console.log(orders)
+  // console.log(orders)
   return (
     <>
       {orders && orders.map((e/* , index */) => { // renders products
